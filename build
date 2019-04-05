@@ -1,0 +1,9 @@
+docker rm -f pxeapi
+docker build --tag pxeapi \
+--tag pxeapi:0.6 \
+--build-arg HTTPS_PROXY=http://10.68.29.97:8080/ \
+--build-arg HTTP_PROXY=http://10.68.29.97:8080/ \
+--build-arg http_proxy=http://10.68.29.97:8080/ \
+--build-arg https_proxy=http://10.68.29.97:8080/ \
+.
+docker run -itd -p 8000:8000 -v /tmp:/coreosini --name=pxeapi pxeapi
