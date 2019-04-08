@@ -13,9 +13,15 @@ type routesT []route
 
 var routes = routesT{
 	route{
-		"TodoCreate",
+		"index",
+		"GET",
+		"/",
+		index,
+	},
+	route{
+		"ignitionCreate",
 		"POST",
 		"/automic",
-		todoCreate,
+		ignitionCreate,
 	},
 }
