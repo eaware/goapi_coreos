@@ -1,17 +1,5 @@
 package main
 
-import "time"
-
-/*
-type Todo struct {
-	Id        int       `json:"id"`
-	Name      string    `json:"name"`
-	Completed bool      `json:"completed"`
-	Due       time.Time `json:"due"`
-        Dummy     *Network  `json:"front,omitempty`
-}
-*/
-
 /*
 domain=web.gen.local
 frontip=10.11.23.41
@@ -26,15 +14,13 @@ mgtgw=10.13.218.1
 */
 
 type todoT struct {
-	ID        int       `json:"id"`
-	Name      string    `json:"name"`
-	Completed bool      `json:"completed"`
-	Due       time.Time `json:"due"`
-	Domain    string    `json:"domain"`
-	Defaultgw string    `json:"defaultgw"`
-	Front     *network  `json:"front"`
-	Backup    *network  `json:"backup"`
-	Managment *network  `json:"managment"`
+	ID        int      `json:"id"`
+	Name      string   `json:"name"`
+	Domain    string   `json:"domain"`
+	Defaultgw string   `json:"defaultgw"`
+	Front     *network `json:"front"`
+	Backup    *network `json:"backup"`
+	Managment *network `json:"managment"`
 }
 
 type network struct {

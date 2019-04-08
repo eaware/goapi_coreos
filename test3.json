@@ -1,21 +1,21 @@
 {
-'name':'slnc6r1111.app.gen.local', 
-'domain':'app.gen.local',
-'defaultgw':'10.2.0.254',
-'completed':true, 
-'front':{
-  'ipaddress': '10.0.0.1',
-  'netmask': '255.255.255.0',
-  'gateway': '10.0.0.254'
+"name":"slnc6r1111.app.gen.local", 
+"domain":"app.gen.local",
+"defaultgw":"10.2.0.254",
+"completed":true, 
+"front":{
+  "ipaddress": "10.0.0.1",
+  "netmask": "255.255.255.0",
+  "gateway": "10.0.0.254"
   },
-'backup':{
-  'ipaddress': '10.1.0.1',
-  'netmask': '23',
-  'gateway': '10.2.0.254'
+"backup":{
+  "ipaddress": "10.1.0.1",
+  "netmask": "23",
+  "gateway": "10.2.0.254"
   },
-'managment':{
-  'ipaddress': '10.2.0.1',
-  'netmask': '255.255.255.0',
-  'gateway': '10.2.0.254'
+"managment":{
+  "ipaddress": "10.2.0.1",
+  "netmask": "255.255.255.0",
+  "gateway": "10.2.0.254"
   }
 }

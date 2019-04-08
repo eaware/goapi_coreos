@@ -13,27 +13,9 @@ type routesT []route
 
 var routes = routesT{
 	route{
-		"Index",
-		"GET",
-		"/",
-		index,
-	},
-	route{
-		"TodoIndex",
-		"GET",
-		"/automic",
-		todoIndex,
-	},
-	route{
 		"TodoCreate",
 		"POST",
 		"/automic",
 		todoCreate,
-	},
-	route{
-		"TodoShow",
-		"GET",
-		"/automic/{todoId}",
-		todoShow,
 	},
 }

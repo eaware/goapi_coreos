@@ -13,10 +13,10 @@ import (
 
 	"strings"
 
-	"github.com/gorilla/mux"
 	"gopkg.in/ini.v1"
 )
 
+// isIPV4, checks string is valid IP
 func isIPV4(i string) bool {
 	parts := strings.Split(i, ".")
 
@@ -38,6 +38,7 @@ func isIPV4(i string) bool {
 	return true
 }
 
+// isNetmaskPrefix, checks string is valid NETMASK
 func isNetmaskPrefix(i string) bool {
 	parts := strings.Split(i, ".")
 	if len(parts) < 4 {
@@ -46,6 +47,7 @@ func isNetmaskPrefix(i string) bool {
 	return true
 }
 
+// netmask2prefix, converts netmask to prefix
 func netmask2prefix(i string) string {
 	mask := net.IPMask(net.ParseIP(i).To4()) // If you have the mask as a string
 	prefixSize, _ := mask.Size()
@@ -55,40 +57,6 @@ func netmask2prefix(i string) string {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprint(w, "Welcome!\n")
-}
-
-func todoIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusOK)
-	if err := json.NewEncoder(w).Encode(todos); err != nil {
-		panic(err)
-	}
-}
-
-func todoShow(w http.ResponseWriter, r *http.Request) {
-	vars := mux.Vars(r)
-	var todoID int
-	var err error
-	if todoID, err = strconv.Atoi(vars["todoId"]); err != nil {
-		panic(err)
-	}
-	todo := repoFindTodo(todoID)
-	if todo.ID > 0 {
-		w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-		w.WriteHeader(http.StatusOK)
-		if err := json.NewEncoder(w).Encode(todo); err != nil {
-			panic(err)
-		}
-		return
-	}
-
-	// If we didn't find it, 404
-	w.Header().Set("Content-Type", "application/json; charset=UTF-8")
-	w.WriteHeader(http.StatusNotFound)
-	if err := json.NewEncoder(w).Encode(jsonErr{Code: http.StatusNotFound, Text: "Not Found"}); err != nil {
-		panic(err)
-	}
-
 }
 
 // Test with this curl command:
